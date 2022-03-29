@@ -6,7 +6,7 @@ function NavbarMain() {
         <div>
             <Navbar bg="dark" variant="dark" expand="lg">
                 <Container fluid="md">
-                    <Navbar.Brand href="/">Binar-Chapter 8</Navbar.Brand>
+                    <Navbar.Brand href="/">Binar Challange-Chapter 8</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 </Container>
             </Navbar>

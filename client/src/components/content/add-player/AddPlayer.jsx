@@ -25,7 +25,7 @@ function AddPlayer(props) {
                     <strong className="mx-auto">Cannot Create Player!!</strong>
                 </Toast.Header>
                 <Toast.Body>
-                    <p className='text-center'>Plaese Input All Required Column!!!</p>
+                    <p className='text-center'>Plaese Fill All Required Column!!!</p>
                 </Toast.Body>
             </Toast>
         )

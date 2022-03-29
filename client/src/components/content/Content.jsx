@@ -41,6 +41,11 @@ function Content() {
         }
     };
 
+    const clearSearch = () => {
+        setFilteredPlayers(players)
+        document.getElementById("filterForm").reset()
+    }
+
     useEffect(() => {
         filteredSearch()
     }, [players])
@@ -48,7 +53,7 @@ function Content() {
     return (
         <div>
             <Container fluid="md">
-                <FilterPlayer filter={filter} setFilter={setFilter} filterSearch={filteredSearch} />
+                <FilterPlayer filter={filter} setFilter={setFilter} filterSearch={filteredSearch} clearSearch={clearSearch} />
                 <TablePlayer players={filteredPlayers} setPlayers={setPlayers} handleShow={handleShowAddModal} />
             </Container>
             <AddPlayer show={showAddModal} handleClose={handleCloseAddModal} setPlayers={setPlayers} />

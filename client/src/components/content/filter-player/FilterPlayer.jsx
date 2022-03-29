@@ -8,7 +8,7 @@ function FilterPlayer(props) {
             <Card>
                 <Card.Header>Search Player</Card.Header>
                 <Card.Body>
-                    <Form>
+                    <Form id='filterForm'>
                         <div className='row'>
                             <div className='col-md-6'>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -52,6 +52,7 @@ function FilterPlayer(props) {
                             </div>
                         </div>
                         <Button className='float-end' variant="primary" onClick={props.filterSearch}>Search</Button>
+                        <Button className='float-end me-1' variant="danger" onClick={props.clearSearch}>Clear</Button>
                     </Form>
                 </Card.Body>
             </Card>
