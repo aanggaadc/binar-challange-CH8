@@ -20,7 +20,7 @@
             "description": "Development Server"
         },
         {
-            "url": "http://localhost:4000",
+            "url": "http://production.com",
             "description": "Production Server"
         }
 
@@ -86,7 +86,11 @@
                                             "example": "Success"
                                         },
                                         "data": {
-                                            "$ref": "#/components/schemas/Player"
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Player"
+                                            }
+
                                         }
                                     }
                                 }
@@ -157,13 +161,13 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "message": {
-                                            "result": {
-                                                "type": "string",
-                                                "example": "Failed"
-                                            },
+                                        "result": {
                                             "type": "string",
-                                            "example": "Username, Email, or Password Is Empty"
+                                            "example": "Failed"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Username, Email, or Password Cannot Be Empty"
                                         }
                                     }
                                 }
@@ -237,7 +241,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Player with {Player} Not Found"
+                                            "example": "Player with id : {id} Not Found"
                                         }
                                     }
                                 }
@@ -305,7 +309,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Player With id: {Player Id} Successfully Updated"
+                                            "example": "Player With id: {id} Successfully Updated"
                                         },
                                         "data": {
                                             "$ref": "#/components/schemas/Player"
@@ -328,7 +332,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Player With id : {Player Id} Not Found"
+                                            "example": "Player With id : {id} Not Found"
                                         }
                                     }
                                 }
@@ -336,7 +340,7 @@
                         }
                     },
                     "500": {
-                        "description": "Failed to Update Player",
+                        "description": "Failed to Update Player/Internal Server Error",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -348,7 +352,7 @@
                                                 "example": "failed"
                                             },
                                             "type": "string",
-                                            "example": "Failed to Update"
+                                            "example": "Failed to Update / Internal Server Error"
                                         }
                                     }
                                 }
@@ -590,15 +594,15 @@
                     },
                     "password": {
                         "type": "string",
-                        "example": "$2b$10$Dsvk5m7.H.oVovFs29bbYe3Cpltup8qtTeiPWo6fIDB4YZLO9EAQm"
+                        "example": "pussy123"
                     },
                     "experience": {
                         "type": "integer",
-                        "example": 2000
+                        "example": 1000
                     },
                     "lvl": {
                         "type": "integer",
-                        "example": 2
+                        "example": 1
                     }
                 }
             },
@@ -615,7 +619,7 @@
                     },
                     "password": {
                         "type": "string",
-                        "example": "$2b$10$Dsvk5m7.H.oVovFs29bbYe3Cpltup8qtTeiPWo6fIDB4YZLO9EAQm"
+                        "example": "pussy123"
                     }
                 }
             },
