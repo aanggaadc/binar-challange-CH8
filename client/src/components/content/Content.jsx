@@ -43,7 +43,7 @@ function Content() {
 
     useEffect(() => {
         filteredSearch()
-    }, [])
+    }, [players])
 
     return (
         <div>
