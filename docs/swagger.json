@@ -607,6 +607,7 @@
                 }
             },
             "Update_Player_Body": {
+                "required": ["username", "password", "email"],
                 "type": "object",
                 "properties": {
                     "username": {
