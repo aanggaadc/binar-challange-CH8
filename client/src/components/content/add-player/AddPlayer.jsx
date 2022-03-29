@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Modal, Form } from 'react-bootstrap'
+import { Button, Modal, Form, Toast } from 'react-bootstrap'
 
 function AddPlayer(props) {
     const [username, setUsername] = useState("")
@@ -7,6 +7,8 @@ function AddPlayer(props) {
     const [password, setPassword] = useState("")
     const [experience, setExperience] = useState(0)
     const [lvl, setLvl] = useState(0)
+    const [showA, setShowA] = useState(false);
+    const toggleShowA = () => setShowA(false);
 
     const resetForm = () => {
         setUsername("")
@@ -16,13 +18,26 @@ function AddPlayer(props) {
         setLvl(0)
     }
 
+    function alertToast() {
+        return (
+            <Toast show={showA} onClose={toggleShowA}>
+                <Toast.Header>
+                    <strong className="mx-auto">Cannot Create Player!!</strong>
+                </Toast.Header>
+                <Toast.Body>
+                    <p className='text-center'>Plaese Input All Required Column!!!</p>
+                </Toast.Body>
+            </Toast>
+        )
+    }
+
     const addNewPlayer = () => {
         if (!username) {
-
+            setShowA(true)
         } else if (!email) {
-
+            setShowA(true)
         } else if (!password) {
-
+            setShowA(true)
         } else {
             props.setPlayers((prev) => {
                 if (prev.length > 0) {
@@ -48,9 +63,11 @@ function AddPlayer(props) {
     return (
         <>
             <Modal show={props.show} onHide={props.handleClose}>
+                <div className='mx-auto'>{alertToast()}</div>
                 <Form>
                     <Modal.Header closeButton>
-                        <Modal.Title>Create New Player</Modal.Title>
+                        <Modal.Title>Create New Player <br /></Modal.Title>
+
                     </Modal.Header>
                     <Modal.Body>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
