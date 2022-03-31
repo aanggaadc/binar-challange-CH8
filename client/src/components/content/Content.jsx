@@ -42,8 +42,14 @@ function Content() {
     };
 
     const clearSearch = () => {
+        // document.getElementById("filterForm").reset()
+        setFilter({
+            username: "",
+            email: "",
+            experience: "",
+            lvl: ""
+        })
         setFilteredPlayers(players)
-        document.getElementById("filterForm").reset()
     }
 
     useEffect(() => {
