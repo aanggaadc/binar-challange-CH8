@@ -555,6 +555,9 @@
                 "required": ["username", "password", "email"],
                 "type": "object",
                 "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
                     "username": {
                         "type": "string"
                     },
