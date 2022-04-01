@@ -60,7 +60,7 @@ function Content() {
         <div>
             <Container fluid="md">
                 <FilterPlayer filter={filter} setFilter={setFilter} filterSearch={filteredSearch} clearSearch={clearSearch} />
-                <TablePlayer players={filteredPlayers} setPlayers={setPlayers} handleShow={handleShowAddModal} />
+                <TablePlayer players={players} playersFilter={filteredPlayers} setPlayers={setPlayers} handleShow={handleShowAddModal} />
             </Container>
             <AddPlayer show={showAddModal} handleClose={handleCloseAddModal} setPlayers={setPlayers} />
 

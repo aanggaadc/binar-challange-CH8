@@ -4,6 +4,7 @@ import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { FcDeleteDatabase } from 'react-icons/fc'
+import { VscSearchStop } from 'react-icons/vsc'
 import EditPlayer from './edit-player/EditPlayer'
 import DeletePlayer from './delete-player/DeletePlayer'
 
@@ -117,6 +118,38 @@ function TablePlayer(props) {
         }
     ];
 
+    const playerTable = () => {
+        if (props.players.length == 0) {
+            return (
+                <div className="text-center">
+                    <FcDeleteDatabase size={80} />
+                    <p>No Players Data</p>
+                </div>
+            )
+        } else {
+            if (props.playersFilter.length > 0) {
+                return (
+                    <div>
+                        <BootstrapTable
+                            keyField='id'
+                            data={props.playersFilter}
+                            columns={columns}
+                            pagination={paginationFactory()}
+                        />
+                    </div>
+
+                )
+            } else {
+                return (
+                    <div className="text-center">
+                        <VscSearchStop size={60} />
+                        <p>No Players Found</p>
+                    </div>
+                )
+            }
+        }
+    }
+
     return (
         <div className="mt-3">
             <Card>
@@ -127,19 +160,7 @@ function TablePlayer(props) {
                     </Button>
                 </Card.Header>
                 <Card.Body>
-                    {(props.players.length > 0) ?
-                        <BootstrapTable
-                            keyField='id'
-                            data={props.players}
-                            columns={columns}
-                            pagination={paginationFactory()}
-                        /> :
-                        <div className="text-center">
-                            <FcDeleteDatabase size={80} />
-                            <p>No Players Data</p>
-                        </div>
-                    }
-
+                    {playerTable()}
                 </Card.Body>
             </Card>
             <EditPlayer show={showEditModal} handleClose={handleCloseEditModal}
