@@ -552,7 +552,7 @@
     "components": {
         "schemas": {
             "Player": {
-                "required": ["username", "password", "email"],
+                "required": ["id", "username", "password", "email"],
                 "type": "object",
                 "properties": {
                     "id": {
