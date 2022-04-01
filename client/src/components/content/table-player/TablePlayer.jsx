@@ -3,6 +3,7 @@ import { Card, Button, Tooltip, OverlayTrigger } from "react-bootstrap"
 import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import { FaEdit, FaTrash } from 'react-icons/fa'
+import { FcDeleteDatabase } from 'react-icons/fc'
 import EditPlayer from './edit-player/EditPlayer'
 import DeletePlayer from './delete-player/DeletePlayer'
 
@@ -126,12 +127,19 @@ function TablePlayer(props) {
                     </Button>
                 </Card.Header>
                 <Card.Body>
-                    <BootstrapTable
-                        keyField='id'
-                        data={props.players}
-                        columns={columns}
-                        pagination={paginationFactory()}
-                    />
+                    {(props.players.length > 0) ?
+                        <BootstrapTable
+                            keyField='id'
+                            data={props.players}
+                            columns={columns}
+                            pagination={paginationFactory()}
+                        /> :
+                        <div className="text-center">
+                            <FcDeleteDatabase size={80} />
+                            <p>No Players Data</p>
+                        </div>
+                    }
+
                 </Card.Body>
             </Card>
             <EditPlayer show={showEditModal} handleClose={handleCloseEditModal}

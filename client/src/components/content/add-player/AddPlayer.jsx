@@ -32,11 +32,7 @@ function AddPlayer(props) {
     }
 
     const addNewPlayer = () => {
-        if (!username) {
-            setShowA(true)
-        } else if (!email) {
-            setShowA(true)
-        } else if (!password) {
+        if (!username || !email || !password) {
             setShowA(true)
         } else {
             props.setPlayers((prev) => {
